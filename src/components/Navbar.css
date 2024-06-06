@@ -1,0 +1,18 @@
+nav {
+    background-color: #f0f0f0;
+    padding: 10px 20px;
+  }
+  
+  ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+  }
+  
+  li {
+    margin-right: 10px;
+  }
+  
