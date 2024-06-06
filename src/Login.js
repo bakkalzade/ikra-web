@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import api from './api'; // axios instance'ı import edin
 
 function LoginPage() {
   const [username, setUsername] = useState('');
@@ -7,13 +8,24 @@ function LoginPage() {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    // Kullanıcı adı ve şifre kontrolü
-    localStorage.setItem("userName",username)
-    if (password === '123') {
-      navigate('/home'); // Yönlendirme
-    } else {
-      alert('Yanlış kullanıcı adı veya şifre!'); // Hata mesajı
-    }
+    const loginRequest = {
+      email: username,
+      password: password
+    };
+
+    api.post('/adminLogin', loginRequest)
+      .then(response => {
+        const { jwtToken } = response.data.body; // JWT tokenını response'dan alın
+        console.log(response.data.body);
+        localStorage.setItem('userName', username);
+        localStorage.setItem('jwtToken', jwtToken); // JWT tokenını localStorage'a kaydedin
+        console.log(localStorage.getItem('jwtToken'));
+        navigate('/home'); // Yönlendirme yapılacak sayfayı buraya yazın
+      })
+      .catch(error => {
+        console.error('Login failed:', error);
+        alert('Yanlış kullanıcı adı veya şifre!'); // Hata mesajı
+      });
   };
 
   return (
