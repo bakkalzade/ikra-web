@@ -6,6 +6,8 @@ import UniversityManager from './sayfalar/UniversityManager';
 import DepartmentManager from './sayfalar/DepartmentManager';
 import CourseManager from './sayfalar/CourseManager';
 import ProfessorAssignment from './sayfalar/ProfessorAsignment';
+import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 function App() {
   return (
