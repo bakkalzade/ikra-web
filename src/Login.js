@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 function LoginPage() {
@@ -7,13 +8,20 @@ function LoginPage() {
   const navigate = useNavigate();
 
   const handleLogin = () => {
-    // Kullanıcı adı ve şifre kontrolü
-    localStorage.setItem("userName",username)
-    if (password === '123') {
-      navigate('/home'); // Yönlendirme
-    } else {
-      alert('Yanlış kullanıcı adı veya şifre!'); // Hata mesajı
-    }
+    const loginRequest = {
+      email: username,
+      password: password
+    };
+
+    axios.post('/adminLogin', loginRequest)
+      .then(response => {
+        localStorage.setItem('userName', username);
+        navigate('/home'); // Yönlendirme yapılacak sayfayı buraya yazın
+      })
+      .catch(error => {
+        console.error('Login failed:', error);
+        alert('Yanlış kullanıcı adı veya şifre!'); // Hata mesajı
+      });
   };
 
   return (
