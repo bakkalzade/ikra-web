@@ -13,6 +13,9 @@ function Navbar() {
         <li><Link to="/community">Topluluklar</Link></li>
         <li><Link to="/communityAssign">Topluluk Görevlisi</Link></li>
         <li><Link to="/announcement">Duyurular</Link></li>
+        <li><Link to="/company">Şirketler</Link></li>
+        <li><Link to="/jobs">İşler</Link></li>
+        <li><Link to="/meals">Yemekhane</Link></li>
       </ul>
     </nav>
   );

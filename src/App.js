@@ -9,6 +9,9 @@ import ProfessorAssignment from './sayfalar/ProfessorAsignment';
 import CommunityManager from './sayfalar/CommunityManager';
 import CommunityAssignment from './sayfalar/CommunityAssignment';
 import AnnouncementManager from './sayfalar/AnnouncementManager';
+import CompanyManager from './sayfalar/CompanyManager';
+import JobManager from './sayfalar/JobManager';
+import MealManager from './sayfalar/MealManager';
 
 function App() {
   return (
@@ -23,7 +26,9 @@ function App() {
           <Route path="/prof" element={<ProfessorAssignment />} />
           <Route path="/community" element={<CommunityManager />} />
           <Route path="/communityAssign" element={<CommunityAssignment />} />
-          <Route path="/announcement" element={<AnnouncementManager />} />
+          <Route path="/company" element={<CompanyManager />} />
+          <Route path="/jobs" element={<JobManager />} />
+          <Route path="/meals" element={<MealManager />} />
         </Routes>
 
     </Router>
