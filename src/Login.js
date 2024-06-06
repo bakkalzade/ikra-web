@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import api from './api'; // axios instance'ı import edin
 
 function LoginPage() {
   const [username, setUsername] = useState('');
@@ -13,9 +13,13 @@ function LoginPage() {
       password: password
     };
 
-    axios.post('/adminLogin', loginRequest)
+    api.post('/adminLogin', loginRequest)
       .then(response => {
+        const { jwtToken } = response.data.body; // JWT tokenını response'dan alın
+        console.log(response.data.body);
         localStorage.setItem('userName', username);
+        localStorage.setItem('jwtToken', jwtToken); // JWT tokenını localStorage'a kaydedin
+        console.log(localStorage.getItem('jwtToken'));
         navigate('/home'); // Yönlendirme yapılacak sayfayı buraya yazın
       })
       .catch(error => {
