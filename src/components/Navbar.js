@@ -10,6 +10,9 @@ function Navbar() {
         <li><Link to="/department">Departmanlar</Link></li>
         <li><Link to="/course">Dersler</Link></li>
         <li><Link to="/prof">Hoca Atama</Link></li>
+        <li><Link to="/community">Topluluklar</Link></li>
+        <li><Link to="/communityAssign">Topluluk Görevlisi</Link></li>
+        <li><Link to="/announcement">Duyurular</Link></li>
       </ul>
     </nav>
   );
